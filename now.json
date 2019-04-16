@@ -1,6 +1,7 @@
 {
   "version": 2,
   "github": true,
+  "public": true,
   "routes": [
     {
       "src": "/.*",
