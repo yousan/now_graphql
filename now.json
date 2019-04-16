@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "hoge.js"
+    }
+  ],
+  "builds": [
+    {
+      "src": "hoge.js",
+      "use": "@now/node-server"
+    },
+    {
+      "src": "schema_2.graphql",
+      "use": "@now/static"
+    }
+  ],
+  "files": [
+    "schema_2.graphql"
+  ]
+}
