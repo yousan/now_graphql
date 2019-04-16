@@ -41,7 +41,7 @@ const { gql } = require('apollo-server');
 
 // Read schema file from file
 const fs = require('fs');
-const mySchema = fs.readFileSync('schema_2.graphql').toString('utf8');
+const mySchema = fs.readFileSync('schema_2.js').toString('utf8');
 const typeDefs = gql`${mySchema}`;
 
 // Put together a schema
