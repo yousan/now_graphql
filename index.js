@@ -1,12 +1,3 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-const { makeExecutableSchema } = require('graphql-tools');
-const { importSchema } = require('graphql-import');
-const cors = require('cors');
-
-const { gql } = require('apollo-server');
-
 // const typeDefs = `
 //   type Author {
 //     id: Int!
@@ -45,28 +36,3 @@ const mySchema = fs.readFileSync('schema_2.js').toString('utf8');
 
 console.log(mySchema);
 return;
-
-const typeDefs = gql`${mySchema}`;
-
-
-// Put together a schema
-const schema = makeExecutableSchema({
-    typeDefs,
-});
-
-// Initialize the app
-const app = express();
-
-// https://www.prisma.io/blog/enabling-cors-for-express-graphql-apollo-server-1ef999bfb38d
-app.use(cors());
-
-// The GraphQL endpoint
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
-
-// GraphiQL, a visual editor for queries
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
-
-// Start the server
-app.listen(80, () => {
-    console.log('Go to http://localhost:3000/graphiql to run queries!');
-});
