@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "github": true,
+  "github": {
+    "enabled": true
+  },
   "public": true,
   "routes": [
     {
